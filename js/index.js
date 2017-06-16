@@ -162,53 +162,80 @@ $(function(){
 			},150);
 		}
 
-
 	});
 
-	var num = 0;
-	var carousel_timer = null;
-	// for (var i = 0; i < 3; i++) {
-	// 	$("#carousel").append($("#carousel a").eq(i).clone(true));
+	/* 轮播图左右按钮滑动方法 */	
+	// var num = 0;
+	// var carousel_timer = null;
+
+	// carousel_timer = setInterval(function(){
+	// 	carousel_fn();
+	// },2500);
+
+	// $(".item09").find(".arrow-l").on("click",function(){
+	// 	num--;
+	// 	if (num < 0) {
+	// 		num = 5;
+	// 	}
+	// 	$("#carousel").stop().animate({
+	// 		"margin-left": -32.5*num + "%"
+	// 	},500);
+
+	// });
+	// $(".item09").find(".arrow-r").on("click",function(){
+	// 	carousel_fn();
+
+	// });
+
+	// $(".item09 .dd").on({
+	// 	"mouseenter":function(){
+	// 		clearInterval(carousel_timer);
+	// 	},
+	// 	"mouseleave":function(){
+	// 		carousel_timer = setInterval(function(){
+	// 			carousel_fn();
+	// 		},2500);			
+	// 	}
+	// });
+
+	// function carousel_fn (){
+	// 	num++;
+	// 	$("#carousel").stop().animate({
+	// 		"margin-left": -32.5*num + "%"
+	// 	},500);
+	// 	if (num >= 5) {
+	// 		num = -1;
+	// 	}
 	// }
 
-	carousel_timer = setInterval(function(){
-		carousel_fn();
-	},2500);
-
-	$(".item09").find(".arrow-l").on("click",function(){
-		num--;
-		if (num < 0) {
-			num = 5;
+	var wrap = document.querySelector(".item09").children[1];
+	var scroll = document.querySelector("#carousel");
+	var startPoinl = 0;
+	var startEl = 0;
+	var maxLeft =  parseInt((wrap.clientWidth - scroll.offsetWidth)*0.54);
+	console.log(maxLeft);
+	wrap.addEventListener(
+		"touchstart",
+		function(e) {
+			var touch = e.changedTouches[0];
+			startPoinl = touch.pageX;
+			startEl = scroll.offsetLeft;
 		}
-		$("#carousel").stop().animate({
-			"margin-left": -32.5*num + "%"
-		},500);
-
-	});
-	$(".item09").find(".arrow-r").on("click",function(){
-		carousel_fn();
-
-	});
-
-	$(".item09 .dd").on({
-		"mouseenter":function(){
-			clearInterval(carousel_timer);
-		},
-		"mouseleave":function(){
-			carousel_timer = setInterval(function(){
-				carousel_fn();
-			},2500);			
+	);
+	wrap.addEventListener(
+		"touchmove",
+		function(e) {
+			var touch = e.changedTouches[0];
+			var nowPoinl = touch.pageX;
+			var dis = nowPoinl - startPoinl;
+			var left = startEl + dis;
+			if(left > 0) {
+				left = 0;
+			}
+			if(left < maxLeft) {
+				left = maxLeft;
+			}
+			scroll.style.left =  left +"px";
 		}
-	});
-
-	function carousel_fn (){
-		num++;
-		$("#carousel").stop().animate({
-			"margin-left": -32.5*num + "%"
-		},500);
-		if (num >= 5) {
-			num = -1;
-		}
-	}
-
+	);
 });
