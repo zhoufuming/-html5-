@@ -419,14 +419,14 @@ a {
 	width: 100%;
 	padding-left: 10%;
 }
-.item09 .arrow {
+/*.item09 .arrow {
 	width: 100%;
 	position: absolute;
 	padding: 0 0.5%;
 	top: 50%;
 	margin-top: -1rem;
 	font-size: 30px;
-	-webkit-touch-callout: none; /* 禁止选中文本 */
+	-webkit-touch-callout: none;
 	-webkit-user-select: none; 
 	-khtml-user-select: none;
 	-moz-user-select: none;
@@ -445,7 +445,7 @@ a {
 .item09 .arrow div:hover {
 	text-decoration: none;
 	color: #10548f;
-}
+}*/
 .item10 {
 	padding-top: 5%;
 	font-family: "微软雅黑";
@@ -573,17 +573,17 @@ a {
 	border-top: 1px solid #e2e2e2;
 }
 #myCarousel .carousel-control span {
-	font-size: 1.6rem;
+	font-size: 3rem;
 	line-height: 28px;
 	border-radius: 0.5rem;
 	background-color: #cecece;
 }
 #myCarousel .item {
 	padding-left: 8%;
-	height: 180px;
+	height: 250px;
 }
 #myCarousel .item img {
-	width: 9%;
+	width: 7%;
 	padding-top: 5rem;
 	line-height: 15rem;
 }
@@ -615,7 +615,7 @@ a {
 	text-align: left;
 	font-size: 13px;
 	font-family: "微软雅黑";
-	line-height: 2rem;
+	line-height: 2.8rem;
 }
 #myCarousel .carousel-caption p {
 	margin-bottom: 0;
@@ -763,8 +763,22 @@ a {
 	.item11-inner {
 		width: 90%;
 	}
+	#myCarousel .carousel-caption {
+		font-size: 13px;
+		line-height: 2rem;
+	}
 	#myCarousel .carousel-caption strong {
 		bottom: 0;
+	}
+	#myCarousel .carousel-control span {
+		font-size: 2rem;
+		line-height: 28px;
+	}
+	#myCarousel .item {
+		height: 180px;
+	}
+	#myCarousel .item img {
+		width: 9%;
 	}
 	.item14 .row>div {
 		padding: 0 15px;
@@ -817,6 +831,7 @@ a {
 		font-size: 1.4rem;
 		line-height: 2rem;
 	}
+
 }
 
 /* 中等屏幕（桌面显示器，大于等于992px） */
