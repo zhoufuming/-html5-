@@ -213,7 +213,7 @@ $(function(){
 	var startPoinl = 0;
 	var startEl = 0;
 	var maxLeft =  parseInt((wrap.clientWidth - scroll.offsetWidth)*0.54);
-	console.log(maxLeft);
+	
 	wrap.addEventListener(
 		"touchstart",
 		function(e) {
