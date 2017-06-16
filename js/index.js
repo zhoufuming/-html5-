@@ -220,11 +220,13 @@ $(function(){
 			var touch = e.changedTouches[0];
 			startPoinl = touch.pageX;
 			startEl = scroll.offsetLeft;
-		}
+		},
+		false
 	);
 	wrap.addEventListener(
 		"touchmove",
 		function(e) {
+			e.preventDefault();
 			var touch = e.changedTouches[0];
 			var nowPoinl = touch.pageX;
 			var dis = nowPoinl - startPoinl;
@@ -238,13 +240,4 @@ $(function(){
 			scroll.style.left =  left +"px";
 		}
 	);
-
-	/* 移动设备横竖屏 */
-	setRem();
-	window.addEventListener("orientationchange", setRem);
-	window.addEventListener("resize", setRem);
-	function setRem() {
-		var html = document.querySelector("html");
-		var width = html.getBoundingClientRect().width;
-	}
 });
